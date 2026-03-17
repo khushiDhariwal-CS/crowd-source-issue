@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>SAMADHAAN-for the people</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <span>ISSUED IN PUBLIC INTEREST FOR THE CITIZENS OF BHARAT <br /> by the people of BHARAT</span>
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="#">FAQs/Help</a>
+                <a href="#">Site Map</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <img src="Screenshot 2025-09-13 020811.png" alt="Emblem" class="emblem" />
+            <p id="title" class="TITLECARD">SAMADHAAN</p>
+        </div>
+        <nav>
+            <div class="nav-btn-group">
+                <button id="viewStatusBtn" class="nav-btn">View Greviences</button>
+                <div class="dropdown nav-btn-group-item">
+                    <button id="nodalOfficersBtn" class="nav-btn dropdown-toggle" >Nodal PG Officers ▼</button>
+                    <div id="nodalDropdown" class="dropdown-content">
+                        <a href="nodalstate.html" id="stateLink">State</a>
+                        <a href="nodalcentral.html" id="centralLink">Central</a>
+                    </div>
+                </div>
+                <button id="grievanceBtn" class="nav-btn">Grievance</button>
+                <button id="authorityBtn" class="nav-btn">Nodal Authority for Appeal</button>
+                <div class="nav-right-group">
+                    <span class="language-label">Language :</span>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <button id="signInBtn" class="signbtn">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main-banner">
+            <aside class="arrow arrow-left">&#10094;</aside>
+            <div class="banner-content">
+                <h1 class="banner-title">Public Grievances platform</h1>
+                <h2 class="banner-subtitle">Citizen Lodges Complaint</h2>
+                <p class="banner-question">ARE YOU AGGRIEVED WITH THE SERVICES OF GOVERNMENT AGENCY?</p>
+                <p class="banner-action"><strong>LODGE YOUR GRIEVANCE HERE</strong></p>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <span class="process-icon">&#128100;</span>
+                        <div class="process-number">01</div>
+                        <div class="process-label">know the Authority to be noticed</div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-icon">&#128196;</span>
+                        <div class="process-number">02</div>
+                        <div class="process-label">fill the issue and make it learned</div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-icon">&#128187;</span>
+                        <div class="process-number">03</div>
+                        <div class="process-label">redirection to concerned authority</div>
+                    </div>
+                </div>
+                <div class="redirection">
+                    How your issue get resolved!
+                </div>
+            </div>
+            <aside class="arrow arrow-right">&#10095;</aside>
+        </section>
+
+        <section class="card-section">
+            <div class="feature-cards">
+                <div class="feature-card" id="card1">
+                    <div class="feature-icon">
+                        <img src="circlebhai.png" alt="Register/Login" />
+                    </div>
+                    <button class="feature-btn">REGISTER / LOGIN</button>
+                </div>
+                <div class="feature-card" id="card2">
+                    <div class="feature-icon">
+                        <img src="glass.jpg" alt="View Status" />
+                    </div>
+                    <button class="feature-btn">VIEW STATUS</button>
+                </div>
+                <div class="feature-card" id="card3">
+                    <div class="feature-icon">
+                        <img src="contactus.jpg" alt="Contact Us" />
+                    </div>
+                    <button class="feature-btn">CONTACT US</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        
+
+            document.getElementById('grievanceBtn').onclick = function () {
+                window.location.href = 'greviences.html';
+            }; 
+            document.getElementById('authorityBtn').onclick = function () {
+                window.location.href = 'nodalappeal.html';
+            };       
+            document.getElementById('viewStatusBtn').onclick = function () {
+                window.location.href = 'profile.html';
+            };
+    </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>List Of Nodal Public Grievance Officers - SAMADHAAN</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Container with page padding and background consistent with home page */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: #fff7e6;
+            color: #60204a;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 56px auto 40px auto;
+            padding: 0 14px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 30px #94176322;
+            box-sizing: border-box;
+        }
+
+        h1.page-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #941763;
+            margin-bottom: 4px;
+            padding-top: 18px;
+        }
+        .note {
+            font-size: 1em;
+            font-weight: 600;
+            color: #ea1b18;
+            text-align: right;
+            padding-bottom: 12px;
+        }
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .table-controls label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #entries {
+            font-weight: normal;
+            border: 1px solid #c2c5cc;
+            border-radius: 6px;
+            padding: 5px 9px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #search {
+            font-weight: normal;
+            border: 1px solid #bfc3d1;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 1em;
+            width: 190px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border-top: 1px solid #ddb8d4;
+            border-bottom: 1px solid #ddb8d4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.07em;
+        }
+        thead tr {
+            background-color: #ccc9d3;
+            color: #232129;
+            font-weight: 700;
+            font-size: 1em;
+        }
+        thead th {
+            text-align: left;
+            padding: 14px 10px;
+            border-bottom: 1.7px solid #a995b0;
+            user-select: none;
+        }
+        tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+        tbody tr:nth-child(even) {
+            background: #f7f0fb;
+        }
+        tbody td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #fadefa;
+            vertical-align: top;
+        }
+        .officer-email {
+            font-family: monospace;
+            font-size: 0.9em;
+            background: #f4e6fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            user-select: text;
+        }
+        .page-footer {
+            padding: 16px 0 8px 0;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.98em;
+            color: #941763cc;
+        }
+
+        /* Header, nav, footer styles should come from style.css as existing in home page */
+
+        /* Responsive */
+        @media (max-width: 720px) {
+            #search {
+                width: 140px;
+            }
+            .table-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .page-title {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <span>ISSUED IN PUBLIC INTEREST FOR THE CITIZENS OF BHARAT <br /> by the people of BHARAT</span>
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="faq.html">FAQs/Help</a>
+                <a href="sitemap.html">Site Map</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <img src="Screenshot 2025-09-13 020811.png" alt="Emblem" class="emblem" />
+            <p id="title" class="TITLECARD" style="text-align:center;">SAMADHAAN</p>
+        </div>
+        <nav>
+            <div class="nav-btn-group">
+                <button id="viewStatusBtn" class="nav-btn">View Status</button>
+                <div class="dropdown nav-btn-group-item">
+                    <button id="nodalOfficersBtn" class="nav-btn dropdown-toggle">Nodal PG Officers ▼</button>
+                    <div id="nodalDropdown" class="dropdown-content">
+                        <a href="nodalstate.html" id="stateLink">State</a>
+                        <a href="nodalcentral.html" id="centralLink">Central</a>
+                    </div>
+                </div>
+                <button id="redressProcessBtn" class="nav-btn">Redress Process</button>
+                <button id="grievanceBtn" class="nav-btn">Grievance</button>
+                <button id="authorityBtn" class="nav-btn">Nodal Authority for Appeal</button>
+                <div class="nav-right-group">
+                    <span class="language-label">Language :</span>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <button id="signInBtn" class="signbtn">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">List Of Nodal Public Grievance Officers</h1>
+            <div class="note">In Email, the words used in the square brackets may be replaced with the respective symbols.<br>some buttons are not working here!!</div>
+            <div class="table-controls">
+                <label for="entries">Show
+                    <select id="entries">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                    entries
+                </label>
+                <label for="search">Search:
+                    <input type="search" id="search" placeholder="Search..." />
+                </label>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Ministry/Department/Organisation</th>
+                            <th>Nodal Public Grievance Officer Name and Designation</th>
+                            <th>Address</th>
+                            <th>Phone No/Fax/Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<tr><td>1</td><td>Administrative Reforms and Public Grievances - PG Division</td><td>Parthasarathy Bhaskar<br />Director</td><td>5th Floor Sardar Patel Bhawan Sansad Marg, New Delhi</td><td>01123743030<br /><span class="officer-email">partha.bhaskar[at]gov[dot]in</span></td></tr>
+<tr><td>2</td><td>Agriculture and Farmers Welfare</td><td>Shri Vinay Awasthi<br />Director PG</td><td>Room No. 350 Krishi Bhavan New Delhi</td><td>01123382454<br /><span class="officer-email">vinay.awasthi[at]nic[dot]in</span></td></tr>
+<tr><td>3</td><td>Agriculture Research and Education</td><td>Narendra Kumar<br />Deputy Secretary</td><td>R No. 207, Krishi Bhawan, New Delhi</td><td>01123046678<br /><span class="officer-email">narendra.kumar74[at]nic[dot]in</span></td></tr>
+<tr><td>4</td><td>Animal Husbandry, Dairying</td><td>RPS Rathore<br />Director</td><td>Room No. 297, 2nd Floor, Krishi Bhavan, New Delhi</td><td>01123385797<br /><span class="officer-email">r.rathore[at]gov[dot]in</span></td></tr>
+<tr><td>5</td><td>Atomic Energy</td><td>Dr. Nitin Bhanudas Jawale<br />Director SCS</td><td>D/o Atomic Energy, Anushakti Bhavan, 3rd Floor, C S M Marg, MUMBAI</td><td>02222862742<br /><span class="officer-email">dirvig[at]dae.gov[dot]in</span></td></tr>
+<tr><td>6</td><td>Ayush</td><td>Subodh Kumar<br />Director</td><td>AYUSH BHAWAN, GPO COMPLEX,B BLOCK,INA ,NEW DELHI</td><td>011245651967<br /><span class="officer-email">ayush-cdn[at]gov[dot]in</span></td></tr>
+<tr><td>7</td><td>Bio Technology</td><td>Divya Chauhan<br />Director</td><td>Room No. 507, Block No. 3, 5th Floor, CGO Complex, Lodi Road, New Delhi</td><td>01124369384<br /><span class="officer-email">divya.c[at]nic[dot]in</span></td></tr>
+<tr><td>8</td><td>Central Board of Direct Taxes (Income Tax)</td><td>SHARDA MEENA<br />Addl. Director of Income Tax TPS-II</td><td>4th Floor, Mayur Bhawan, Connaught Circus, New Delhi</td><td>01123416133<br /><span class="officer-email">delhi.dittps2[at]incometax.gov[dot]in</span></td></tr>
+<tr><td>9</td><td>Central Board of Excise and Customs</td><td>Shri Daya Chand Verma<br />Additional Director</td><td>Directorate General of Taxpayer Services, Room no 168, Ist Floor, Central Revenue Building, I.P. Estate, New Delhi</td><td>01123370576<br /><span class="officer-email">verma.dc[at]gov[dot]in</span></td></tr>
+<tr><td>10</td><td>Chemicals and Petrochemicals</td><td>Shri. Chitvan Singh Dhillon<br />Deputy Director</td><td>Room No. 223 A , Shastri Bhavan, New Delhi</td><td>01123386083<br /><span class="officer-email">chitvan.dhillon[at]gov[dot]in</span></td></tr>
+<tr><td>11</td><td>Civil Aviation</td><td>Shri Ambuj Sharma<br />Deputy Secretary and PGO</td><td>Room. No.50, Ground Floor, B-Block, Rajiv Gandhi Bhawan, Safdarjung Airport, New Delhi</td><td>01124641912<br /><span class="officer-email">ambujsharma.38[at]nic[dot]in</span></td></tr>
+<tr><td>12</td><td>Coal</td><td>Shri Lakhpat Singh Choudhary<br />Joint Secretary</td><td>Ministry of Coal, Room No. 329 A, 3rd Floor, Shastri Bhawan, New Delhi</td><td>01123383356<br /><span class="officer-email">lschoudhary.irss[at]gov[dot]in</span></td></tr>
+<tr><td>13</td><td>Commerce</td><td>Shri Ravinder Kumar<br />Director</td><td>Room No. 221, Udyog Bhawan, New Delhi</td><td>01123061508<br /><span class="officer-email">jspg-doc[at]gov[dot]in</span></td></tr>
+<tr><td>14</td><td>Consumer Affairs</td><td>Swwarupa Saraan<br />Director</td><td>Room No.464 - C Krishi Bhavan New Delhi</td><td>01123381767<br /><span class="officer-email">swwarupa.saraan[at]nic[dot]in</span></td></tr>
+<tr><td>15</td><td>Cooperation</td><td>Shri Kumar Ram Krishna<br />Director</td><td>Atal Akshay Urja Bhawan, CGO Complex, Lodhi Road, New Delhi</td><td>01120849152<br /><span class="officer-email">dscd.div-coop[at]gov[dot]in</span></td></tr>
+<tr><td>16</td><td>Corporate Affairs</td><td>Mohd. Shakeel<br />Joint Director</td><td>Kota House, New Delhi</td><td>01123385285<br /><span class="officer-email">mohd.shakeel[at]mca.gov[dot]in</span></td></tr>
+<tr><td>17</td><td>Culture</td><td>Arun Kumar<br />Deputy Secretary</td><td>3rd Floor C Wing, Ministry of Culture, Shastri Bhavan, New Delhi</td><td>01123380136<br /><span class="officer-email">arun.dbt[at]nic[dot]in</span></td></tr>
+<tr><td>18</td><td>Defence</td><td>Shri Manish Tripathi<br />JS MIS</td><td>Room No. 198A, South Block New Delhi</td><td>01123017828<br /><span class="officer-email">usdpg-mod[at]gov[dot]in</span></td></tr>
+<tr><td>19</td><td>Defence Finance</td><td>Shri Vedveer Arya<br />Addl. Financial Advisor and Joint Secretary</td><td>Room No 539, O/o the AS and Addl. FA R and D, DRDO Bhawan, New Delhi-110011</td><td>01123010159<br /><span class="officer-email">vedveerarya.dad[at]hub.nic[dot]in</span></td></tr>
+<tr><td>20</td><td>Defence Production</td><td>Smt Karamjeet Kaur<br />Deputy Secretary Coord DDP</td><td>Room No. 11-A, South Block, New Delhi</td><td>01123792959<br /><span class="officer-email">dir-coord[at]ddpmod.gov[dot]in</span></td></tr>
+<tr><td>21</td><td>Defence Research and Development</td><td>Dr. Sanjai Kumar Dwivedi<br />Sc G and Director Personnel</td><td>DRDO HQrs, Min of Defence, Room No. 217, DRDO Bhawan, Rajaji Marg, New Delhi</td><td>01123007218<br /><span class="officer-email">dte-pers.hqr[at]gov[dot]in</span></td></tr>
+<tr><td>22</td><td>Development of North Eastern Region</td><td>Surat Singh<br />Joint Secretary</td><td>Room No. 11 Block- 12 Jodhpur Officers Hostel, Pandara Park</td><td>01121411638<br /><span class="officer-email">surats.edu[at]nic[dot]in</span></td></tr>
+<tr><td>23</td><td>Drinking Water and Sanitation</td><td>Avnish Rastogi<br />Deputy Secretary</td><td>6th Floor, Pt. Deendayal Antyodhya Bhawan, CGO Complex,</td><td>01124368771<br /><span class="officer-email">avnish.rastogi65[at]gov[dot]in</span></td></tr>
+<tr><td>24</td><td>Earth Sciences</td><td>VINOD KUMAR<br />Director</td><td>Room No. 312 3rd Floor, Prithvi Bhawan Opp. India Habitat Centre, Lodi Road, New Delhi</td><td>01124669529<br /><span class="officer-email">vinod.kumar27[at]gov[dot]in</span></td></tr>
+<tr><td>25</td><td>Economic Affairs</td><td>Ms. Aparna Bhatia<br />Adviser Admin</td><td>Room No. 34-B, North Block, New Delhi</td><td>01123092254<br /><span class="officer-email">aparna.bhatia[at]nic[dot]in</span></td></tr>
+<tr><td>26</td><td>Electronics & Information Technology</td><td>Amod Kumar<br />Joint Secretary and GC</td><td>6, CGO Complex, Electronics Niketan, New Delhi</td><td>01124363114<br /><span class="officer-email">js.digigov[at]gov[dot]in</span></td></tr>
+<tr><td>27</td><td>Empowerment of Persons with Disabilities</td><td>Ipsita Mitra<br />Deputy Secretary</td><td>5th Floor, Pt. Deendayal Antyodaya Bhawan, CGO Complex, Lodhi Road, New Delhi</td><td>01124369066<br /><span class="officer-email">cpgramsdepwd[at]gmail[dot]com</span></td></tr>
+<tr><td>28</td><td>Environment, Forest and Climate Change</td><td>Shri Vikram Singh<br />Deputy Secretary</td><td>1st Floor, Jal Wingh, Indira Paryavaran Bhavan, Jor Bagh New Delhi</td><td>01120819331<br /><span class="officer-email">vikramsingh.rth[at]nic[dot]in</span></td></tr>
+<tr><td>29</td><td>Ex Servicemen Welfare</td><td>Shri Pradeep Kumar Sahu<br />Deputy Secretary</td><td>Room No. 116, B Wing, Sena Bhavan, New Delhi</td><td>01123010244<br /><span class="officer-email">ds-pg[at]desw.gov[dot]in</span></td></tr>
+<tr><td>30</td><td>Expenditure</td><td>Shri Sunil Kumar<br />Deputy Secretary</td><td>Room No. 48E, North Block, New Delhi</td><td>01123095705<br /><span class="officer-email">sunilkumar0970[at]nic[dot]in</span></td></tr>
+<tr><td>31</td><td>External Affairs</td><td>Dr. Binoy George<br />JOINT SECRETARY CPV</td><td>CPV Division, Patiala House Annexe, Tilak Marg, New Delhi</td><td>01123384529<br /><span class="officer-email">jscpv[at]mea.gov[dot]in</span></td></tr>
+<tr><td>32</td><td>Fertilizers</td><td>Mohan Lal Meena<br />DS Coordination</td><td>Shastri Bhawan, New Delhi</td><td>01123388064<br /><span class="officer-email">mohanlal.meena70[at]nic[dot]in</span></td></tr>
+<tr><td>33</td><td>Financial Services (Banking Division)</td><td>SHRI SURJITH KARTHIKEYAN<br />DIRECTOR</td><td>3RD Floor, Jeevan Deep Building Building, Sansad Marg New Delhi</td><td>01123346785<br /><span class="officer-email">sobo3-dfs[at]nic[dot]in</span></td></tr>
+<tr><td>34</td><td>Financial Services (Insurance Division)</td><td>Sh SURJITH KARTHIKEYAN<br />DIRECTOR</td><td>3RD Floor,Jeevan Deep Building Building, Sansad Marg New Delhi</td><td>01123346785<br /><span class="officer-email">sobo3-dfs[at]nic[dot]in</span></td></tr>
+<tr><td>35</td><td>Financial Services (Pension Reforms)</td><td>Shri. Surjith Karthikeyan<br />Director</td><td>3rd Floor, Jeevandeep Building New Delhi</td><td>01123748772<br /><span class="officer-email">surjith.k[at]nic[dot]in</span></td></tr>
+<tr><td>36</td><td>Fisheries</td><td>Pumzalal Pulamte<br />Deputy Secretary</td><td>First floor Chanderlok Building, Janpath New Delhi</td><td>01123710006<br /><span class="officer-email">p.pulamte[at]nic[dot]in</span></td></tr>
+<tr><td>37</td><td>Food and Public Distribution</td><td>Ms. Nandita Mishra<br />Senior Economic Adviser</td><td>Room No. 194 Krishi Bhavan New Delhi</td><td>01123070371<br /><span class="officer-email">nandita.mishra[at]nic[dot]in</span></td></tr>
+<tr><td>38</td><td>Food Processing Industries</td><td>Shri. Ranjit Singh<br />Joint Secretary</td><td>Panchsheel Bhawan, August Kranti Marg, New Delhi</td><td>01126492176<br /><span class="officer-email">singhranjit[at]cag.gov[dot]in</span></td></tr>
+<tr><td>39</td><td>Health & Family Welfare</td><td>Ms. Poonam Meena<br />Director</td><td>Room No. 211, D Wing, Nirman Bhawan New Delhi</td><td>01123062205<br /><span class="officer-email">poonam.22[at]gov[dot]in</span></td></tr>
+<tr><td>40</td><td>Health Research</td><td>Shri N Sriramasubramanian<br />Under Secretary</td><td>Room No. 218, Indian Red Cross Society Building, 1, Red Cross Road, NEW DELHI</td><td>01123736085<br /><span class="officer-email">sreram-law[at]nic[dot]in</span></td></tr>
+<tr><td>41</td><td>Heavy Industry</td><td>Laltlana Chhangte<br />Director</td><td>Udyog Bhavan Room No.382 New Delhi</td><td>01123061563<br /><span class="officer-email">laltlana.chhangte[at]nic[dot]in</span></td></tr>
+<tr><td>42</td><td>Higher Education</td><td>Sh. M L Soni<br />Director</td><td>Room No. 6,West Block 1,wing 6, R K Puram, 2nd Floor,D/o Higher Education,Ministry of Education, New Delhi</td><td>01123384721<br /><span class="officer-email">ml.soni[at]nic[dot]in</span></td></tr>
+<tr><td>43</td><td>Home Affairs</td><td>DS Coord<br />DS coord</td><td>5th Floor, Media Wing, NDCC - II Building New Delhi</td><td>01123438002<br /><span class="officer-email">dircoord-mha[at]nic[dot]in</span></td></tr>
+<tr><td>44</td><td>Housing and Urban Affairs</td><td>Smt. Sneh Lata<br />DS</td><td>M/o HUA, Room No. 211, C Wing, Nirman Bhavan, Maulana Azad Road, New Delhi</td><td>01123062387<br /><span class="officer-email">sneh.lata71[at]nic[dot]in</span></td></tr>
+<tr><td>45</td><td>Information and Broadcasting</td><td>MEENU BATRA<br />Joint Secretary</td><td>Room No. 709, A Wing Shastri Bhawan, New Delhi</td><td>01123385587<br /><span class="officer-email">meenu.batra66[at]nic[dot]in</span></td></tr>
+<tr><td>46</td><td>Investment & Public Asset Management</td><td>Shri Pramod Kumar Saha<br />Adviser Cost</td><td>Room No. 226, 2nd Floor Block No.14 CGO Complex, Lodhi Road New Delhi</td><td>01124368523<br /><span class="officer-email">pksaha.nppa[at]nic[dot]in</span></td></tr>
+<tr><td>47</td><td>Justice</td><td>Radha katyal Narang<br />Director</td><td>Jaisalmer House, Mansingh Road, New Delhi</td><td>01123070673<br /><span class="officer-email">radha.katyal[at]gov[dot]in</span></td></tr>
+<tr><td>48</td><td>Labour and Employment</td><td>Shri G. Sajith Kumar<br />Deputy Secretary and Nodal PGO</td><td>Room No. 505, Fifth Floor, Shram Shakti Bhavan, Rafi Marg, New Delhi.</td><td>01123719054<br /><span class="officer-email">sajith.edu[at]nic[dot]in</span></td></tr>
+<tr><td>49</td><td>Land Resources</td><td>Anurag Sharma<br />Director</td><td>Room 002, G Wings , NBO Building Nirman Bhavan New Delhi</td><td>01123063160<br /><span class="officer-email">anurag.sh[at]nic[dot]in</span></td></tr>
+<tr><td>50</td><td>Legal Affairs</td><td>Devanshu Kumar<br />Public Grievance Officer</td><td>4th Floor, A-Wing, Shastri Bhawan, Dr. Rajendra Prasad Rd. New Delhi</td><td>01123383634<br /><span class="officer-email">devanshu.kumar01[at]nic[dot]in</span></td></tr>
+<tr><td>51</td><td>Legislative Department</td><td>Shri Hans Raj Meena<br />Deputy Secretary</td><td>Shastri Bhavan New Delhi</td><td>01123389014<br /><span class="officer-email">admin1ld[at]nic[dot]in</span></td></tr>
+<tr><td>52</td><td>Micro Small and Medium Enterprises</td><td>Mr. Anil Kumar<br />Deputy Secretary</td><td>6th Floor, Nirman Bhawan, New Delhi</td><td>01123061546<br /><span class="officer-email">anil.kumar75[at]nic[dot]in</span></td></tr>
+<tr><td>53</td><td>Military Affairs</td><td>Parag Kabat<br />Director Coord</td><td>Room No 143 Sena Bhawan New Delhi</td><td>01123013416<br /><span class="officer-email">dircoord.ec-dma[at]gov[dot]in</span></td></tr>
+<tr><td>54</td><td>Mines</td><td>Shri Rajesh Kumar Ner<br />Section Officer</td><td>Shastri Bhawan, New Delhi</td><td>01123384225<br /><span class="officer-email">pgpi-mom[at]nic[dot]in</span></td></tr>
+<tr><td>55</td><td>Minority Affairs</td><td>Shri T.K. Das<br />Deputy Secretary</td><td>Pt. Deendayal Antyodaya Bhawan, 11th Floor,CGO Complex, Lodhi Road, New Delhi</td><td>01124364277<br /><span class="officer-email">dsrti-mma[at]gov[dot]in</span></td></tr>
+<tr><td>56</td><td>New and Renewable Energy</td><td>Mr. Rampal Singh<br />Dy. Secretary</td><td>Room No. 304, Atal Akshaya Urja Bhavan, Opp. CGO Complex, Lodi Road, N Delhi</td><td>01120849070<br /><span class="officer-email">rampal.singh67[at]gov[dot]in</span></td></tr>
+<tr><td>57</td><td>NITI Aayog</td><td>VINOD KUMAR<br />DS</td><td>Room No. 404, NITI Aayog, Sansad Marg, New Delhi</td><td>01123042475<br /><span class="officer-email">vinod.kumar[at]nic[dot]in</span></td></tr>
+<tr><td>58</td><td>O/o the Comptroller & Auditor General of India</td><td>Sumeet Kumar<br />Assistant Comptroller and Auditor General</td><td>9, Deen Dayal Upadhayaya Marg, New Delhi</td><td>01123509303<br /><span class="officer-email">acn[at]cag.gov[dot]in</span></td></tr>
+<tr><td>59</td><td>Official Language</td><td>Dr. Meenakshi Jolly<br />Joint Secretary</td><td>NDCC-II Bhawan, Jai Singh Road New Delhi</td><td>01123438130<br /><span class="officer-email">jsol[at]nic[dot]in</span></td></tr>
+<tr><td>60</td><td>Panchayati Raj</td><td>Shri Rajesh Sharma<br />Under Secretary</td><td>Ministry of Panchayati Raj, Tower II, 9th Floor, Jeevan Bharti Building, New Delhi</td><td>01123325309<br /><span class="officer-email">rajesh.sharma1967[at]gov[dot]in</span></td></tr>
+<tr><td>61</td><td>Parliamentary Affairs</td><td>S. S. Patra<br />Deputy Secretary</td><td>S-59, Parliament House, New Delhi</td><td>01123083876<br /><span class="officer-email">ss.patra[at]nic[dot]in</span></td></tr>
+<tr><td>62</td><td>Pensions and Pensioners Welfare</td><td>Shri Pramod Kumar<br />Director-PP</td><td>8th Floor, B-Wing, Janpath Bhawan, Janpath, Delhi</td><td>01123350020<br /><span class="officer-email">pramod.kumar79[at]gov[dot]in</span></td></tr>
+<tr><td>63</td><td>Personnel and Training</td><td>Dilip Kumar Jha<br />Deputy Secretary</td><td>31078 - W/H , DOPT, Kartavya Bhavan - 03, New Delhi</td><td>01124010499<br /><span class="officer-email">dk.jha[at]nic[dot]in</span></td></tr>
+<tr><td>64</td><td>Petroleum and Natural Gas</td><td>Manoj Kumar Jha<br />Deputy Secretary</td><td>Room No. 311-A,Shastri Bhavan New Delhi</td><td>01123383678<br /><span class="officer-email">noas.kindo68[at]gov[dot]in</span></td></tr>
+<tr><td>65</td><td>Pharmaceutical</td><td>Vijay Kumar Srivastava<br />Director</td><td>Janpath Bhawan</td><td>01123327718<br /><span class="officer-email">vijayk.srivastava25[at]nic[dot]in</span></td></tr>
+<tr><td>66</td><td>Posts</td><td>Shri Rupesh Pal<br />ADG PG</td><td>Room No. 236H1, Dak Bhavan, Parliament Street New Delhi</td><td>01123096087<br /><span class="officer-email">ddgpgq[at]indiapost.gov[dot]in</span></td></tr>
+<tr><td>67</td><td>Power</td><td>Amarjit Singh<br />Director - Public Grievance and RTI</td><td>2nd Floor, F Wing, Nirman Bhawan, Maulana Azad Rd, Rajpath Area, New Delhi</td><td>011230633454<br /><span class="officer-email">singh.amarjit[at]gov[dot]in</span></td></tr>
+<tr><td>68</td><td>Promotion of Industry and Internal Trade</td><td>SUSHIL KUMAR<br />Deputy Secretary</td><td>Room No. 417, Department for Promotion of Industry and Internal Trade, Vanijya Bhavan, New Delhi</td><td>01123063651<br /><span class="officer-email">sk.dushyant[at]nic[dot]in</span></td></tr>
+<tr><td>69</td><td>Public Enterprises</td><td>Muni Ram Meena<br />Director</td><td>Room No. 422, Block No. 14, Public Enterprises Bhawan, CGO Complex, Lodhi Road, New Delhi</td><td>01124362770<br /><span class="officer-email">munirammeena[at]ord.gov[dot]in</span></td></tr>
+<tr><td>70</td><td>Railways, ( Railway Board)</td><td>RATNESH KUMAR JHA<br />EXECUTIVE DIRECTOR PG</td><td>ROOM NO. 509 RAIL BHAVAN RAISINA ROAD NEW DELHI</td><td>01123386203<br /><span class="officer-email">edpg[at]rb.railnet.gov[dot]in</span></td></tr>
+<tr><td>71</td><td>Revenue</td><td>Shri Saurabh Kumar<br />Director Coord</td><td>Room No. 66 North Block, New Delhi</td><td>01123092232<br /><span class="officer-email">dir-coord-dor[at]gov[dot]in</span></td></tr>
+<tr><td>72</td><td>Road Transport and Highways</td><td>Shri Mohan Chandra Bhatt<br />Deputy Secretary</td><td>Room No. 232,Transport Bhawan, Sansad Marg New Delhi</td><td>01123314317<br /><span class="officer-email">bhatt.mohan[at]nic[dot]in</span></td></tr>
+<tr><td>73</td><td>Rural Development</td><td>Shri Umesh Kumar Ram<br />Joint Director</td><td>India Habitat Centre, Room No.12, Core 5A, 2nd Floor, New Delhi</td><td>01124360565<br /><span class="officer-email">umeshkr.ram[at]gov[dot]in</span></td></tr>
+<tr><td>74</td><td>School Education and Literacy</td><td>Shri Sankha Roy<br />Deputy Secretary</td><td>Room No. 101-D Wing, Department of School Education and Literacy, Ministry of Human Resource Development,Shastri Bhawan New Delhi</td><td>01123073542<br /><span class="officer-email">sankha.roy[at]nic[dot]in</span></td></tr>
+<tr><td>75</td><td>Science and Technology</td><td>K R Devarajan<br />Under Secretary PG</td><td>Department of Science and Technology, Technology Bhavan, New Mehrauli Road, New Delhi</td><td>01126590462<br /><span class="officer-email">kr.devarajan[at]nic[dot]in</span></td></tr>
+<tr><td>76</td><td>Scientific & Industrial Research</td><td>Sh. Bishnu Pada Kirtania<br />Deputy Secretary</td><td>Technology Bhawan, New Mehrauli Road, New Delhi</td><td>01126590260<br /><span class="officer-email">bp.kirtania[at]nic[dot]in</span></td></tr>
+<tr><td>77</td><td>Shipping</td><td>Sh. Mrityunjay Jha<br />Director</td><td>Room No. 545,Parivahan Bhavan, 1, Sansad Marg New Delhi</td><td>01123313948<br /><span class="officer-email">mrityunjay.jha[at]nic[dot]in</span></td></tr>
+<tr><td>78</td><td>Skill Development and Entrepreneurship</td><td>Shri Manish Kumar Singh<br />Deputy Secretary</td><td>2nd Floor, Kaushal Bhawan, New Moti Bagh, New Delhi</td><td>01123465915<br /><span class="officer-email">manishks.rth[at]nic[dot]in</span></td></tr>
+<tr><td>79</td><td>Social Justice and Empowerment</td><td>Shri Vinesh Pachnanda<br />Deputy Secretary</td><td>Pt. Deendayal Antyodaya Bhawan, CGO Complex, New Delhi.</td><td>01124369837<br /><span class="officer-email">vinesh.pachnanda[at]nic[dot]in</span></td></tr>
+<tr><td>80</td><td>Space</td><td>Padma Jyothi S<br />Deputy Secretary</td><td>Antariksh Bhavan, New B.E.L. Road, Bengaluru</td><td>08022172402<br /><span class="officer-email">pgdos[at]isro.gov[dot]in</span></td></tr>
+<tr><td>81</td><td>Sports</td><td>Subhabrata Karmakar<br />Deputy Secretary</td><td>Hall No.101, JLN Stadium, Lodhi Road, New Delhi</td><td>01124362942<br /><span class="officer-email">sp6-section-moyas[at]gov[dot]in</span></td></tr>
+<tr><td>82</td><td>Staff Selection Commission</td><td>Shri Varinder Singh<br />Deputy Secretary</td><td>Staff Selection Commission, Block No. 12, CGO Complex, Lodhi Road, New Delhi-110003</td><td>01124364795<br /><span class="officer-email">vsingh.71[at]gov[dot]in</span></td></tr>
+<tr><td>83</td><td>Statistics and Programme Implementation</td><td>Mr. SANJAY ARORA<br />Director</td><td>Ministry of Statistics and Programme Implementation, Room No. 523, Khurshid Lal Bhawan, Janpath, New Delhi</td><td>01123455523<br /><span class="officer-email">sarora[at]nic[dot]in</span></td></tr>
+<tr><td>84</td><td>Steel</td><td>Ms. Gurpreet Gadhok<br />Director</td><td>Room No. 63, Udyog Bhavan, New Delhi</td><td>01123063355<br /><span class="officer-email">gurpreet.gadhok[at]nic[dot]in</span></td></tr>
+<tr><td>85</td><td>Telecommunications</td><td>Sh. B M Patel<br />Director MOC PG</td><td>Room No.605, 6th Floor Mahanagar Doorsanchar Bhawan Near Zakir Hussain College Old Minto Road New Delhi</td><td>01123222412<br /><span class="officer-email">dirpg.hq-dot[at]gov[dot]in</span></td></tr>
+<tr><td>86</td><td>Textiles</td><td>Shri Rajeev Ranjan Kumar<br />Director</td><td>Udyog Bhavan, New Delhi</td><td>01123061142<br /><span class="officer-email">rajeevkumar.dad[at]gov[dot]in</span></td></tr>
+<tr><td>87</td><td>Tourism</td><td>Pawan<br />Under Secretary</td><td>Transport Bhawan, 1, Sansad Marg, New Delhi, Delhi</td><td>01123724157<br /><span class="officer-email">pawan.a13[at]nic[dot]in</span></td></tr>
+<tr><td>88</td><td>Tribal Affairs</td><td>Ashok Kumar Gupta<br />Deputy Secretary</td><td>Ministry of Tribal Affairs, Jeewan Tara Building</td><td>01123343303<br /><span class="officer-email">ashok.kgupta[at]nic[dot]in</span></td></tr>
+<tr><td>89</td><td>Unique Identification Authority of India</td><td>Neeraj Kumar<br />Director</td><td>Unique Identification Authority of India, HQ 6th Floor, Bangla Sahib Road Behind Kali Mandir, New Delhi</td><td>01123478453<br /><span class="officer-email">dir.crm-hq[at]uidai.net[dot]in</span></td></tr>
+<tr><td>90</td><td>Water Resources, River Development & Ganga Rejuvenation</td><td>Lokesh Kumar Jain<br />Director Coord</td><td>Room No 210 Ground Floor Shastri Bhawan New Delhi</td><td>01123383079<br /><span class="officer-email">dircoord-mowr[at]nic[dot]in</span></td></tr>
+<tr><td>91</td><td>Women and Child Development</td><td>Shri Aujender Singh<br />Director</td><td>Room No. 641-A, 6th Floor, A Wing, Shastri Bhawan, New Delhi</td><td>01123380547<br /><span class="officer-email">aujender.singh[at]nic[dot]in</span></td></tr>
+<tr><td>92</td><td>Youth Affairs</td><td>Rakesh Kumar<br />Deputy Secretary</td><td>Room No. 102, C- Wing, Shastri Bhavan, New Delhi</td><td>01123387034<br /><span class="officer-email">rakesh.kumar72[at]nic[dot]in</span></td></tr>
+</tbody>
+
+                </table>
+            </div>
+            <div class="page-footer">
+                Showing 1 to 10 of 37 entries
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span></span>
+    </footer>
+
+
+ <script> 
+     const table = document.querySelector('table tbody');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const entriesSelect = document.getElementById('entries');
+    const searchInput = document.getElementById('search');
+    const pageFooter = document.querySelector('.page-footer');
+    let rowsPerPage = parseInt(entriesSelect.value, 10);
+    let currentSearch = '';
+    let sortAscending = true;
+
+    function sortRows(rowsToSort) {
+        return rowsToSort.sort((a, b) => {
+            const textA = a.cells[1].textContent.trim().toLowerCase();
+            const textB = b.cells[1].textContent.trim().toLowerCase();
+            if (textA < textB) return sortAscending ? -1 : 1;
+            if (textA > textB) return sortAscending ? 1 : -1;
+            return 0;
+        });
+    }
+
+    function renderRows() {
+        let filteredRows = rows.filter(row => {
+            const text = row.textContent.toLowerCase();
+            return text.includes(currentSearch.toLowerCase());
+        });
+        filteredRows = sortRows(filteredRows);
+        filteredRows.forEach((row, idx) => {
+            row.style.display = idx < rowsPerPage ? '' : 'none';
+        });
+        rows.forEach(row => {
+            if (!filteredRows.includes(row)) row.style.display = 'none';
+        });
+        const start = filteredRows.length === 0 ? 0 : 1;
+        const end = Math.min(rowsPerPage, filteredRows.length);
+        pageFooter.textContent = `Showing ${start} to ${end} of ${filteredRows.length} entries`;
+    }
+
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sortAscending = !sortAscending;
+            renderRows();
+        }
+    });
+    entriesSelect.addEventListener('change', function () {
+        rowsPerPage = parseInt(this.value, 10);
+        renderRows();
+    });
+    searchInput.addEventListener('input', function () {
+        currentSearch = this.value.trim();
+        renderRows();
+    });
+
+    renderRows();
+     document.getElementById('grievanceBtn').onclick = function () {
+                window.location.href = 'greviences.html';
+            };
+            document.getElementById('authorityBtn').onclick = function () {
+                window.location.href = 'nodalappeal.html';
+            };   
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAMADHAAN - Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* In-page simple styles for contact cards and content */
+
+    main {
+      max-width: 1140px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact {
+      background: #fff9e6;
+      border-radius: 18px;
+      box-shadow: 0 8px 35px rgba(251, 181, 0, 0.3);
+      padding: 50px 40px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .contact .content {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact .content h2 {
+      font-size: 3rem;
+      color: #af2e45;
+      margin-bottom: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .contact .content p {
+      font-size: 1.2rem;
+      color: #6e504d;
+      max-width: 650px;
+      margin: 0 auto;
+      user-select: text;
+    }
+
+    .contactInfo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .box {
+      background: #fff3cd;
+      padding: 30px 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 25px rgb(251 168 35 / 0.35);
+      width: 280px;
+      text-align: center;
+      cursor: default;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .box:hover {
+      background: #f8e4a9;
+      box-shadow: 0 8px 35px rgb(251 168 35 / 0.6);
+      transform: translateY(-7px);
+    }
+
+    .icon {
+      font-size: 3.2rem;
+      color: #fdb836;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #862b37;
+      margin-bottom: 12px;
+      user-select: text;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #5e4846;
+      margin: 0;
+      user-select: text;
+      word-wrap: break-word;
+    }
+
+    .txt {
+      font-size: 1.7rem;
+      color: #af2e45;
+      font-weight: 900;
+      margin: 40px 0 8px 0;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sci {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      user-select: none;
+    }
+
+    .sci li a {
+      font-size: 2.4rem;
+      color: #af2e45;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    .sci li a:hover,
+    .sci li a:focus {
+      color: #fdb835;
+      outline: none;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+      main {
+        margin: 20px 15px 80px 15px;
+      }
+
+      .box {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact .content h2 {
+        font-size: 2.3rem;
+      }
+
+      .contact .content p {
+        font-size: 1.1rem;
+      }
+
+      .sci li a {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <span>ISSUED IN PUBLIC INTEREST FOR THE CITIZENS OF BHARAT <br /> by the people of BHARAT</span>
+      <div class="menu-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="aboutus.html">About</a>
+        <a href="#">FAQs/Help</a>
+        <a href="#">Site Map</a>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <img src="Screenshot 2025-09-13 020811.png" alt="Emblem" class="emblem" />
+      <p class="TITLECARD">SAMADHAAN</p>
+    </div>
+
+    <nav>
+      <div class="nav-btn-group">
+        <button id="viewStatusBtn" class="nav-btn">View Greviences</button>
+        <div class="dropdown nav-group-item">
+          <button id="nodalOfficersBtn" class="nav-btn dropdown-toggle">Nodal Officers ▼</button>
+          <div id="nodalDropdown" class="dropdown-content">
+            <a href="nodalstate.html" id="stateLink">State</a>
+            <a href="nodalcentral.html" id="centralLink">Central</a>
+          </div>
+        </div>
+        <button id="redressProcessBtn" class="nav-btn">Redress Process</button>
+        <button id="grievanceBtn" class="nav-btn">Grievance</button>
+        <button id="authorityBtn" class="nav-btn">Nodal Authority for Appeal</button>
+        <div class="nav-right-group">
+          <span class="language-label">Language :</span>
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+          </select>
+        </div>
+        <button id="signInBtn" class="signbtn">Sign In</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact">
+      <div class="content">
+        <h2>Contact Us</h2>
+        <p>
+          If you have questions about the SAMADHAAN platform, wish to report a civic issue, or want to collaborate with us,
+          please get in touch.
+        </p>
+      </div>
+
+      <div class="contactInfo" role="main">
+        <div class="box" role="region" aria-labelledby="addressTitle">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3 id="addressTitle">Address</h3>
+          <p>IMS Engineering College<br>Ghaziabad (UP), 201015, India</p>
+        </div>
+
+        <div class="box" role="region" aria-labelledby="phoneTitle">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <h3 id="phoneTitle">Phone</h3>
+          <p>+91-7417069839</p>
+        </div>
+
+        <div class="box" role="region" aria-labelledby="emailTitle">
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <h3 id="emailTitle">Email</h3>
+          <p>samadhaan.gravitycoders@gmail.com</p>
+        </div>
+
+        <h2 class="txt">Connect With Us</h2>
+
+        <ul class="sci" role="list" aria-label="Social media links">
+          <li><a href="https://www.instagram.com/_samadhaan_official_/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com/samadhaan.official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="https://x.com/samadhaan_in" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 SAMADHAAN — Platform for civic engagement and transparency.
+  </footer>
+
+  <script>
+    document.getElementById('grievanceBtn').onclick = () => {
+      window.location.href = 'greviences.html';
+    };
+    document.getElementById('authorityBtn').onclick = () => {
+      window.location.href = 'nodalappeal.html';
+    };
+    document.getElementById('viewStatusBtn').onclick = () => {
+      window.location.href = 'profile.html';
+    };
+
+    // Dropdown for Nodal Officers
+    const nodalButton = document.getElementById('nodalOfficersBtn');
+    const nodalDropdown = document.getElementById('nodalDropdown');
+
+    nodalButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nodalDropdown.style.display = nodalDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', () => {
+      nodalDropdown.style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>

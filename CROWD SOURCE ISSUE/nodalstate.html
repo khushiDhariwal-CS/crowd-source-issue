@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>List Of Nodal Public Grievance Officers - SAMADHAAN</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Container with page padding and background consistent with home page */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: #fff7e6;
+            color: #60204a;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 56px auto 40px auto;
+            padding: 0 14px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 30px #94176322;
+            box-sizing: border-box;
+        }
+
+        h1.page-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #941763;
+            margin-bottom: 4px;
+            padding-top: 18px;
+        }
+        .note {
+            font-size: 1em;
+            font-weight: 600;
+            color: #ea1b18;
+            text-align: right;
+            padding-bottom: 12px;
+        }
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .table-controls label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #entries {
+            font-weight: normal;
+            border: 1px solid #c2c5cc;
+            border-radius: 6px;
+            padding: 5px 9px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #search {
+            font-weight: normal;
+            border: 1px solid #bfc3d1;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 1em;
+            width: 190px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border-top: 1px solid #ddb8d4;
+            border-bottom: 1px solid #ddb8d4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.07em;
+        }
+        thead tr {
+            background-color: #ccc9d3;
+            color: #232129;
+            font-weight: 700;
+            font-size: 1em;
+        }
+        thead th {
+            text-align: left;
+            padding: 14px 10px;
+            border-bottom: 1.7px solid #a995b0;
+            user-select: none;
+        }
+        tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+        tbody tr:nth-child(even) {
+            background: #f7f0fb;
+        }
+        tbody td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #fadefa;
+            vertical-align: top;
+        }
+        .officer-email {
+            font-family: monospace;
+            font-size: 0.9em;
+            background: #f4e6fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            user-select: text;
+        }
+        .page-footer {
+            padding: 16px 0 8px 0;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.98em;
+            color: #941763cc;
+        }
+
+        /* Header, nav, footer styles should come from style.css as existing in home page */
+
+        /* Responsive */
+        @media (max-width: 720px) {
+            #search {
+                width: 140px;
+            }
+            .table-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .page-title {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <span>ISSUED IN PUBLIC INTEREST FOR THE CITIZENS OF BHARAT <br /> by the people of BHARAT</span>
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="faq.html">FAQs/Help</a>
+                <a href="sitemap.html">Site Map</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <img src="Screenshot 2025-09-13 020811.png" alt="Emblem" class="emblem" />
+            <p id="title" class="TITLECARD" style="text-align:center;">SAMADHAAN</p>
+        </div>
+        <nav>
+            <div class="nav-btn-group">
+                <button id="viewStatusBtn" class="nav-btn">View Status</button>
+                <div class="dropdown nav-btn-group-item">
+                    <button id="nodalOfficersBtn" class="nav-btn dropdown-toggle">Nodal PG Officers ▼</button>
+                    <div id="nodalDropdown" class="dropdown-content">
+                        <a href="nodalstate.html" id="stateLink">State</a>
+                        <a href="nodalcentral.html" id="centralLink">Central</a>
+                    </div>
+                </div>
+                <button id="redressProcessBtn" class="nav-btn">Redress Process</button>
+                <button id="grievanceBtn" class="nav-btn">Grievance</button>
+                <button id="authorityBtn" class="nav-btn">Nodal Authority for Appeal</button>
+                <div class="nav-right-group">
+                    <span class="language-label">Language :</span>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <button id="signInBtn" class="signbtn">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">List Of Nodal Public Grievance Officers</h1>
+            <div class="note">In Email, the words used in the square brackets may be replaced with the respective symbols.<br>some buttons are not working here!!</div>
+            <div class="table-controls">
+                <label for="entries">Show
+                    <select id="entries">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                    entries
+                </label>
+                <label for="search">Search:
+                    <input type="search" id="search" placeholder="Search..." />
+                </label>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Ministry/Department/Organisation</th>
+                            <th>Nodal Public Grievance Officer Name and Designation</th>
+                            <th>Address</th>
+                            <th>Phone No/Fax/Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Insert all rows here from your data -->
+                        <!-- Example row -->
+                        <tr>
+                            <td>1</td>
+                            <td>Andhra Pradesh</td>
+                            <td>Chinna Rao<br />CGO-CMO</td>
+                            <td>General Admn Dept PAGB Secretariat Velagapudi AMARAVATI</td>
+                            <td>09154267973<br /><span class="officer-email">pgrs-helpdesk[at]ap.gov[dot]in</span></td>
+                        </tr>
+                        <tr>
+                        <td>2</td><td>Arunachal Pradesh</td><td>Shri Mari Angu<br />Joint Secretary</td><td>Civil Secretariat Block No. 04, Floor No. 05, Room No.08, Itanagar</td>
+                        <td>03602222222<br /><span class="officer-email">mari.angu[at]gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>Assam</td><td>Smti Dorothy Suchiang ACS<br />State Nodal Officer</td>
+                        <td>Joint Secretary to the Govt. of Assam, Administrative Reforms, Training, Pension and Public Grievances Department, Assam Secretariat</td>
+                        <td>03612237323<br /><span class="officer-email">ppgdispurassam[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>Bihar</td><td>R.N Choudhary<br />JS</td><td>General Administration Department, Patna</td>
+                        <td>06122215409<br /><span class="officer-email">publicgrievances-bih[at]gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td><td>Chattisgarh</td><td>Shri Kailash Kumar Netam<br />UNDER SECRETARY</td>
+                        <td>Public Grievance Redressal Department, Mantralaya Mahanadi Bhavan Nava Raipur Atal nagar</td>
+                        <td>07712510974<br /><span class="officer-email">pgc-gad.cg[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td><td>Goa</td><td>DIksha N Tari<br />Under Secretary PG</td>
+                        <td>2nd Floor, Secretariat, Porvorim Goa</td>
+                        <td>08322419864<br /><span class="officer-email">us-pgc.goa[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td><td>Gujarat</td><td>Shri Hareet Shukla<br />Principal Secretary</td>
+                        <td>General Administration Department Block No. 7/3, 3rd Floor, Sachivalaya, Gandhi Nagar</td>
+                        <td>07923250333<br /><span class="officer-email">secartd[at]gujarat.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td><td>Haryana</td><td>VACANT<br />Nodal Officer CPGRAMS</td>
+                        <td>Chandigarh</td>
+                        <td>01722740226<br /><span class="officer-email">supdt.cpgrams22[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td><td>Himachal Pradesh</td><td>Shainamol A<br />Secretary - AR RPG Training and FA Ayush</td>
+                        <td>Secretary RPG to the Govt. of HP. Shimla-2.</td>
+                        <td>01772620560<br /><span class="officer-email">rpgsecy-hp[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td><td>Jharkhand</td><td>Md. Asif Hassan<br />Joint Secretary</td>
+                        <td>Personnel, Administrative Reforms and Rajhbhasha Department, Jharkhand, Ranchi</td>
+                        <td>18003456568<br /><span class="officer-email">pgportal.jhr[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>11</td><td>Karnataka</td><td>Smt.G.Umadevi<br />Under Secretary</td>
+                        <td>Room 211, 2nd Floor, 3rd Gate, M S Building, Bengaluru, GRIEVANCE STATUS LINK https://ipgrs.karnataka.gov.in</td>
+                        <td>08022032214<br /><span class="officer-email">us2dpar-js[at]karnataka.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>12</td><td>Kerala</td><td>Sajid M<br />Under Secretary</td>
+                        <td>Chief Minister's Computer Cell, 4th Floor, North Block, Government Secretariat, Thiruvananthapuram</td>
+                        <td>04712703002<br /><span class="officer-email">priority.cmo[at]kerala.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>13</td><td>Madhya Pradesh</td><td>Sandeep Asthana<br />Director CM Helpline</td>
+                        <td>2nd Floor Capital Mall, Misrod Bhopal M.P.</td>
+                        <td>07556680020<br /><span class="officer-email">cmhelpline[at]mp.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>14</td><td>Maharashtra</td><td>Mr. Dilip Nandkumar Deshpande<br />Deputy Secretary</td>
+                        <td>General Administration Department, 3rd Floor, Mantralaya Mail Building, Mantralaya, Mumbai</td>
+                        <td>02222025101<br /><span class="officer-email">dilip.deshpande[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>15</td><td>Manipur</td><td>A. Shivadas Sharma MCS<br />Joint Secretary AR</td>
+                        <td>Old Sectt., North Block, Imphal</td>
+                        <td>119402882539<br /><span class="officer-email">aribam.shivadas[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>16</td><td>Meghalaya</td><td>Shri Cyril Diengdoh IAS<br />Commissioner and Secretary Personnel and A.R.</td>
+                        <td>Meghalaya Civil Sectt, Room 403, Additional Building, Shillong, Meghalaya</td>
+                        <td>03642500165<br /><span class="officer-email">cyril.diengdoh[at]gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>17</td><td>Mizoram</td><td>Isaac C. Lalrempuia<br />Nodal Officer Deptt. of Personnel and Administrative Reforms Good Governance Cell</td>
+                        <td>Mizoram Secretariat, MINECO, Aizawl</td>
+                        <td>03892335713<br /><span class="officer-email">ggcmiz[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>18</td><td>Nagaland</td><td>Shri Vechovo Tetseo<br />Senior Research Officer and State Nodal Officer</td>
+                        <td>Nagaland Civil Secretariat, Kohima</td>
+                        <td>03700000000<br /><span class="officer-email">vechovo.tetseo[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>19</td><td>NCT of Delhi</td><td>Upender<br />Section Officer PGC</td>
+                        <td>Public Grievances Commission, M Block, Vikas Bhawan, I P Estate, New Delhi</td>
+                        <td>01123379900<br /><span class="officer-email">upender.k66[at]delhi.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>20</td><td>Odisha</td><td>Deputy Secretary<br />Deputy Secretary to Government</td>
+                        <td>General Administration and Public Grievance Deptt., Odisha Sectt., Bhubaneshwar</td>
+                        <td>06742395760<br /><span class="officer-email">gapgpublicgrievance[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>21</td><td>Punjab</td><td>IAS<br />Additional Chief Secretary</td>
+                        <td>Removal Of Grievances Punjab Civil Sectt-1</td>
+                        <td>01722740611<br /><span class="officer-email">grievanceredressal2[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>22</td><td>Rajasthan</td><td>Mr Ghanshyam Dan Sandu<br />Deputy Secretary Additional Charge</td>
+                        <td>Room No. 8129, 1st floor, North Western Building, Secretariat Jaipur</td>
+                        <td>01412922825<br /><span class="officer-email">DS.RPG[at]RAJASTHAN.GOV[dot]IN</span></td>
+                    </tr>
+                    <tr>
+                        <td>23</td><td>Sikkim</td><td>Shri. Santosh Pradhan<br />Joint Secretary</td>
+                        <td>Department of Personnel, Tashiling, Secretariat</td>
+                        <td>035922000000<br /><span class="officer-email">gos.dopart[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>24</td><td>Tamil Nadu</td><td>T. Jeya Sheela B.E MBA<br />Special Officer</td>
+                        <td>Chief Ministers Special Cell, Fort St. George, Secretariat Chennai</td>
+                        <td>04425671012<br /><span class="officer-email">cmcell[at]tn.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>25</td><td>Telangana</td><td>J.ARUN KUMAR<br />Additional Secretary to GAD</td>
+                        <td>Dr. B.R. Ambedkar Telangana Secretariat</td>
+                        <td>04023452888<br /><span class="officer-email">secy-pgr-gad[at]telangana.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>26</td><td>Tripura</td><td>Smt. Debjani Deb TCS Gr-I<br />Joint Secretary to the Govt. of Tripura</td>
+                        <td>GAAR Department, Secretariat, New Capital Complex, Kunjaban, Agartala.</td>
+                        <td>03812416040<br /><span class="officer-email">gaar.agt-tr[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>27</td><td>Union Territory of Andaman & Nicobar</td><td>Smti. Shailaja<br />Assistant Secretary of A.R. Wing and Public Grievances</td>
+                        <td>Public Grievance Cell A and N Administration, Secretariat, Sri Vijaya Puram</td>
+                        <td>03192232803<br /><span class="officer-email">sspg.govan[at]gmail[dot]com</span></td>
+                    </tr>
+                    <tr>
+                        <td>28</td><td>Union Territory of Chandigarh</td><td>Amit Kumar DANICS<br />Additional Secretary Home</td>
+                        <td>Union Territory Secretariat, Deluxe Building, Sector-9 Chandigarh</td>
+                        <td>01722994524<br /><span class="officer-email">ashome-chd[at]chd.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>29</td><td>Union Territory of Dadra & Nagar Haveli</td><td>Dr. Sunabh Singh<br />Director-cum-Deputy Secretary</td>
+                        <td>Department of Public Grievances, Secretariat Kachigam, Daman</td>
+                        <td>02602230460<br /><span class="officer-email">dshome-dd[at]ddd.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>30</td><td>Union Territory of Daman & Diu</td><td>Dr. Sunabh Singh<br />Director-cum-Deputy Secretary</td>
+                        <td>Department of Public Grievances Secretariat, Kachigam, Daman</td>
+                        <td>02602231707<br /><span class="officer-email">dshome-dd[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>31</td><td>Union Territory of Jammu and Kashmir</td><td>Azeeta Qureshi<br />Under Secretary</td>
+                        <td>H 8 Church Lane, Sonwar Srinagar</td>
+                        <td>01942483236<br /><span class="officer-email">qureshi.azee[at]jk.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>32</td><td>Union Territory of Ladakh</td><td>Sandeep Singh JKAS<br />Nodal Officer for CPGRMS</td>
+                        <td>UT Secretariat Ladakh</td>
+                        <td>01982257561<br /><span class="officer-email">gad.utladakh[at]ladakh.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>33</td><td>Union Territory of Lakshadweep</td><td>Shri.P. Abdul Samad<br />Director</td>
+                        <td>Department of Planning, Statistics and Taxation Secretariat, UT of Lakshadweep, Kavaratti, Island</td>
+                        <td>04896263068<br /><span class="officer-email">lk-coll[at]nic[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>34</td><td>Union Territory of Puducherry</td><td>N. UDAYAKUMAR<br />Under Secretary ARW</td>
+                        <td>AR Wing,B Block, 2nd Floor, Chief Sectt., Goubert Avenue, Beach Road,Puducherry</td>
+                        <td>04132233214<br /><span class="officer-email">usar[at]py.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>35</td><td>Uttar Pradesh</td><td>Shri Arvind Mohan<br />Joint Secretary</td>
+                        <td>Chief Minister Secretariat , Room No. 321, U.P. Secretariat, Lucknow</td>
+                        <td>05222226350<br /><span class="officer-email">arvind.12574[at]gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>36</td><td>Uttarakhand</td><td>Aarti Balodi<br />Nodal Officer</td>
+                        <td>ITDA, Dehradun</td>
+                        <td>01352609521<br /><span class="officer-email">cm-helpline[at]uk.gov[dot]in</span></td>
+                    </tr>
+                    <tr>
+                        <td>37</td><td>West Bengal</td><td>Shri Ajay Kumar Pal<br />Special Secretary</td>
+                        <td>Nabanna (7th Floor), 325, Sarat Chatterjee Road, Shibpur, Howrah - 711102</td>
+                        <td>03322143655<br /><span class="officer-email">jointsecretarypar[at]gmail[dot]com</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="page-footer">
+                Showing 1 to 10 of 37 entries
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span></span>
+    </footer>
+
+
+ <script> 
+     const table = document.querySelector('table tbody');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const entriesSelect = document.getElementById('entries');
+    const searchInput = document.getElementById('search');
+    const pageFooter = document.querySelector('.page-footer');
+    let rowsPerPage = parseInt(entriesSelect.value, 10);
+    let currentSearch = '';
+    let sortAscending = true;
+
+    function sortRows(rowsToSort) {
+        return rowsToSort.sort((a, b) => {
+            const textA = a.cells[1].textContent.trim().toLowerCase();
+            const textB = b.cells[1].textContent.trim().toLowerCase();
+            if (textA < textB) return sortAscending ? -1 : 1;
+            if (textA > textB) return sortAscending ? 1 : -1;
+            return 0;
+        });
+    }
+
+    function renderRows() {
+        let filteredRows = rows.filter(row => {
+            const text = row.textContent.toLowerCase();
+            return text.includes(currentSearch.toLowerCase());
+        });
+        filteredRows = sortRows(filteredRows);
+        filteredRows.forEach((row, idx) => {
+            row.style.display = idx < rowsPerPage ? '' : 'none';
+        });
+        rows.forEach(row => {
+            if (!filteredRows.includes(row)) row.style.display = 'none';
+        });
+        const start = filteredRows.length === 0 ? 0 : 1;
+        const end = Math.min(rowsPerPage, filteredRows.length);
+        pageFooter.textContent = `Showing ${start} to ${end} of ${filteredRows.length} entries`;
+    }
+
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sortAscending = !sortAscending;
+            renderRows();
+        }
+    });
+    entriesSelect.addEventListener('change', function () {
+        rowsPerPage = parseInt(this.value, 10);
+        renderRows();
+    });
+    searchInput.addEventListener('input', function () {
+        currentSearch = this.value.trim();
+        renderRows();
+    });
+
+    renderRows();
+     document.getElementById('grievanceBtn').onclick = function () {
+                window.location.href = 'greviences.html';
+            }; 
+            document.getElementById('authorityBtn').onclick = function () {
+                window.location.href = 'nodalappeal.html';
+            };  
+ </script>
+
+</body>
+</html>

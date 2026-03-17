@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grievance Profiles - SAMADHAAN</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Container and base layout from previous theme */
+    body {
+    background: #fff;
+     
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 60px auto 40px auto;
+      padding: 0 16px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .page-header h1 {
+      color: #ff7d22;
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px #e07a1d;
+    }
+
+    .page-header p {
+      color: #60204a;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Grievance cards container */
+    .grievance-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    /* Grievance profile block with 70:25:10 ratio */
+    .grievance-profile {
+      display: flex;
+      background: #23272a;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px #ff7d22a0;
+      width: 360px;
+      height: 220px;
+      overflow: hidden;
+      cursor: default;
+      user-select: none;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      color: #cad0db;
+    }
+
+    .grievance-profile:hover,
+    .grievance-profile:focus-visible {
+      box-shadow: 0 14px 48px #ff7d22cc;
+      transform: translateY(-5px);
+      z-index: 10;
+    }
+
+    /* Photo section - 70% width */
+    .profile-photo-container {
+      flex: 7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .grievance-profile:hover .profile-photo {
+      transform: scale(1.06);
+    }
+
+    /* Description section - 25% width */
+    .profile-desc-container {
+      flex: 2.5;
+      background: #14171a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 14px;
+    }
+
+    .profile-desc {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #f7a437;
+      line-height: 1.3;
+      text-align: left;
+      user-select: text;
+    }
+
+    /* Vote section - 10% width */
+    .profile-vote-container {
+      flex: 1;
+      background: #ff7d22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 18px;
+      border-bottom-right-radius: 18px;
+      user-select: none;
+      padding: 6px 0;
+    }
+
+    .vote-button {
+      font-size: 28px;
+      color: #60204a;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+      padding: 0;
+      transition: color 0.3s ease;
+      width: 36px;
+      display: flex;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .vote-button:hover:not(.disabled) {
+      color: #fff;
+    }
+
+    .vote-button.voted-up {
+      color: #ff3a3a;
+      transform: scale(1.2);
+    }
+
+    .vote-button.voted-down {
+      color: #3a81ff;
+      transform: scale(1.2);
+    }
+
+    .vote-count {
+      font-size: 1.4em;
+      font-weight: 900;
+      color: #60204a;
+      user-select: none;
+      line-height: 1;
+      min-width: 38px;
+      text-align: center;
+    }
+
+    /* Responsive for smaller devices */
+    @media (max-width: 400px) {
+      .grievance-profile {
+        flex-direction: column;
+        width: 95vw;
+        height: auto;
+      }
+      .profile-photo-container,
+      .profile-desc-container,
+      .profile-vote-container {
+        flex: none;
+        width: 100%;
+        border-radius: 0;
+      }
+      .profile-photo-container {
+        height: 220px;
+      }
+      .profile-desc-container {
+        padding: 14px 12px;
+        background: #14171a;
+      }
+      .profile-desc {
+        font-size: 1rem;
+        text-align: center;
+      }
+      .profile-vote-container {
+        flex-direction: row;
+        justify-content: space-around;
+        border-radius: 0 0 18px 18px;
+        padding: 12px 0;
+      }
+      .vote-button {
+        margin: 0;
+        font-size: 2rem;
+        width: auto;
+      }
+      .vote-count {
+        font-size: 1.2rem;
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header + nav as in original layout -->
+  <header>
+    <div class="topbar">
+      <span>ISSUED IN PUBLIC INTEREST FOR THE CITIZENS OF BHARAT <br /> by the people of BHARAT</span>
+      <div class="menu-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="#">FAQs/Help</a>
+        <a href="#">Site Map</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <img src="Screenshot 2025-09-13 020811.png" alt="Emblem" class="emblem" />
+      <p id="title" class="TITLECARD" >SAMADHAAN</p>
+    </div>
+    <nav>
+      <div class="nav-btn-group">
+        <button id="viewStatusBtn" class="nav-btn">View Greviences</button>
+        <div class="dropdown nav-btn-group-item">
+          <button id="nodalOfficersBtn" class="nav-btn dropdown-toggle">Nodal PG Officers ▼</button>
+          <div id="nodalDropdown" class="dropdown-content">
+            <a href="nodalstate.html">State</a>
+            <a href="nodalcentral.html">Central</a>
+          </div>
+        </div>
+        <button id="redressProcessBtn" class="nav-btn">Redress Process</button>
+        <button id="grievanceBtn" class="nav-btn">Grievance</button>
+        <button id="authorityBtn" class="nav-btn">Nodal Authority for Appeal</button>
+        <div class="nav-right-group">
+          <span class="language-label">Language :</span>
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+        <button id="signInBtn" class="signbtn">Sign In</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header" role="banner">
+        <h1>Grievances Submitted By Users</h1>
+        <p>Browse, upvote, and support issues faced by citizens.</p>
+      </div>
+      <section class="grievance-cards" aria-live="polite" aria-label="Grievance profiles">
+        <!-- Profile 1 -->
+        <article class="grievance-profile" tabindex="0" aria-label="Grievance about Water Supply by Rajeev Kumar">
+          <div class="profile-photo-container">
+            <img src="NOLIGHT.webp" alt="Rajeev Kumar" class="profile-photo" />
+          </div>
+          <div class="profile-desc-container">
+            <div class="profile-desc">
+              Water supply has been cut for over 3 days with no information from municipal authorities. Urgent resolution requested.
+            </div>
+          </div>
+          <div class="profile-vote-container" role="region" aria-label="Voting controls">
+            <button class="vote-button upvote" aria-pressed="false" aria-label="Upvote this grievance">▲</button>
+            <div class="vote-count">7</div>
+            <button class="vote-button downvote" aria-pressed="false" aria-label="Downvote this grievance">▼</button>
+          </div>
+        </article>
+
+        <!-- Profile 2 -->
+        <article class="grievance-profile" tabindex="0" aria-label="Grievance about Garbage Collection by Simran Kaur">
+          <div class="profile-photo-container">
+            <img src="garbage.webp" alt="Simran Kaur" class="profile-photo" />
+          </div>
+          <div class="profile-desc-container">
+            <div class="profile-desc">
+              Repeated missed garbage pickup causing hygiene issues and pileup.
+            </div>
+          </div>
+          <div class="profile-vote-container" role="region" aria-label="Voting controls">
+            <button class="vote-button upvote" aria-pressed="false" aria-label="Upvote this grievance">▲</button>
+            <div class="vote-count">14</div>
+            <button class="vote-button downvote" aria-pressed="false" aria-label="Downvote this grievance">▼</button>
+          </div>
+        </article>
+
+        <!-- Profile 3 -->
+        <article class="grievance-profile" tabindex="0" aria-label="Grievance about Streetlight Not Working by Ashutosh Singh">
+          <div class="profile-photo-container">
+            <img src="broken-streetlight.webp" alt="Ashutosh Singh" class="profile-photo" />
+          </div>
+          <div class="profile-desc-container">
+            <div class="profile-desc">
+              Streetlights have been non-functional for two weeks causing safety risks at night.
+            </div>
+          </div>
+          <div class="profile-vote-container" role="region" aria-label="Voting controls">
+            <button class="vote-button upvote" aria-pressed="false" aria-label="Upvote this grievance">▲</button>
+            <div class="vote-count">21</div>
+            <button class="vote-button downvote" aria-pressed="false" aria-label="Downvote this grievance">▼</button>
+          </div>
+        </article>
+
+        <!-- Add more as needed -->
+      </section>
+    </div>
+  </main>
+
+  <footer style="text-align:center; padding: 16px; color:#b7b1b1;">
+    
+  </footer>
+
+  <script>
+    document.querySelectorAll(".grievance-profile").forEach(profile => {
+      const upBtn = profile.querySelector(".upvote");
+      const downBtn = profile.querySelector(".downvote");
+      const countEl = profile.querySelector(".vote-count");
+      let votes = parseInt(countEl.textContent, 10);
+      let voteState = 0; // 0=no vote, 1=upvoted, -1=downvoted
+
+      function updateVotes() {
+        countEl.textContent = votes;
+        upBtn.classList.toggle("voted-up", voteState === 1);
+        downBtn.classList.toggle("voted-down", voteState === -1);
+        upBtn.setAttribute("aria-pressed", voteState === 1);
+        downBtn.setAttribute("aria-pressed", voteState === -1);
+        // disable buttons while voted
+        upBtn.disabled = voteState !== 0;
+        downBtn.disabled = voteState !== 0;
+      }
+
+      upBtn.addEventListener("click", () => {
+        if (voteState === 1) {
+          votes--;
+          voteState = 0;
+        } else {
+          if (voteState === -1) votes++;
+          votes++;
+          voteState = 1;
+        }
+        updateVotes();
+      });
+
+      downBtn.addEventListener("click", () => {
+        if (voteState === -1) {
+          votes++;
+          voteState = 0;
+        } else {
+          if (voteState === 1) votes--;
+          votes--;
+          voteState = -1;
+        }
+        updateVotes();
+      });
+
+      updateVotes();
+    });
+
+    // Dropdown toggle and authority button scripts as before
+    const nodalBtn = document.getElementById('nodalOfficersBtn');
+    const nodalDropdown = document.getElementById('nodalDropdown');
+    nodalBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      nodalDropdown.style.display = nodalDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', () => {
+      nodalDropdown.style.display = 'none';
+    });
+    document.getElementById('authorityBtn').addEventListener('click', () => {
+      location.href = 'nodalappeal.html';
+    });
+    document.getElementById('viewStatusBtn').addEventListener('click', () => {
+      location.href = 'profile.html';
+    });
+    document.getElementById('grievanceBtn').addEventListener('click', () => {
+      location.href = 'greviences.html';
+    });
+  </script>
+</body>
+
+</html>
